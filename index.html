@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="description" content="A Virus Tracker for the United States">
+	<meta name="author" content="Chris Coraggio">
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="js/get_states.js"></script>
+	<script src="js/get_lat_lng.js"></script>
+	<script src="js/report.js"></script>
+	<script src="js/circles.js"></script>
+	<script async defer src="js/map-maker.js"></script>
+	
+	<title>Should I Stay or Should I Go</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+
+  <body>
+  	<div class="container">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<h3>Should I Stay or Should I Go? Virus Tracking App</h3>
+  		</div>
+  		<div class="row">	
+  			<div class="col-md-6" id="map" style="height:100vh"></div>
+  			<div class="col-md-6" jumbotron>
+  				<div class="col-md-6">
+	  				<div class="row">
+		  				<select class="citylist" id="startpoint" name="Starting Point" style="width: 100%">
+		  					<option selected>Starting Point</option>
+		  				</select>
+		  			</div>
+		  			<div class="row">
+		  				<select class="citylist" id="endpoint" name="Destination" style="width: 100%">
+		  					<option selected>Destination</option>
+		  				</select>
+		  			</div>
+		  			<div class="row">
+		  				<button onclick="submitPressed()">Plot my trip!</button>
+		  			</div>
+		  		</div>
+	  			<div class="col-md-6">
+	  				<p>When will you be traveling?</p>
+	  				<p>From: <input type="text" class="datepicker"></p>
+	  				<p>To: <input type="text" class="datepicker"></p>
+	  			</div>
+	  			<div class="row" id="report-container">
+	  				<!-- filled dynamically with JS -->
+	  			</div>
+  			</div>
+		</div>
+	</div>
+	</div>	
+
+	<script>
+      getStates();
+      $(".datepicker").each(function(){
+      	$(this).datepicker();
+      });
+    </script>
+
+  </body>
+
+
+  <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyCiXdNvw4_e5ZGuFLCj_gLlV3v0L-Ely6c"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</html>
